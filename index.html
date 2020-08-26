@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование (корректура) текстов онлайн</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="container-left-origin">
+                <a aria-current="page" class="logo" href="#">
+                    <img src="./Image/logo.svg" alt="Logo" title="Logo">
+                </a>
+                <div class="header-navbar">
+                    <a class="navbar-link" data-lang data-ua='Про нас' data-rus="О нас" href="#">Про нас</a>
+                    <a class="navbar-link" data-lang data-ua='Ціни' data-rus="Цены" href="#">Ціни</a>
+                    <a class="navbar-link" data-lang data-ua='Редактори' data-rus="Редакторы" href="#">Редактори</a>
+                    <a class="navbar-link" href="#">Блог</a>
+                </div>
+            </div>
+            <div class="container-right-origin">
+                <div class="button-wrapper">
+                    <button data-lang data-ua='Перевірити текст' data-rus="Проверить текст"
+                        class="button-check">Перевірити текст</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid p-0 main-wrapper">
+        <main class="container">
+            <form>
+                <div class="row m-0 p-0">
+                    <div class="col-12 col-lg-9 p-0 pl-sm-2 pr-sm-2 pl-lg-3 pr-lg-3 main-form">
+                        <div class="form-section">
+                            <div class="form-section-item">
+                                <h3 data-lang data-ua='ЗАМОВИТИ РЕДАГУВАННЯ' data-rus="ЗАКАЗ РЕДАКТИРОВАНИЯ"
+                                    class="title mb-20">ЗАМОВИТИ РЕДАГУВАННЯ</h3>
+                                <p class="small">
+                                    <span data-lang data-ua='Виправимо всі помилки, приберемо всі дурниці, перефразуємо невдалі місця, але
+                                сильно текст не переписуватимемо. Зайвих виправлень не
+                                буде.'
+                                        data-rus="Исправим все ошибки и огрехи, уберем все глупости из текста, перефразируем неудачные места, но сильно переписывать текст не станем. Лишних правок не будет.">Виправимо
+                                        всі помилки, приберемо всі дурниці, перефразуємо невдалі місця, але
+                                        сильно текст не переписуватимемо. Зайвих виправлень не
+                                        буде.</span>
+                                    <a data-lang data-ua='Детальніше про редагування'
+                                        data-rus="Подробнее о редактировании" href="/ua/price/proofreading">Детальніше
+                                        про редагування</a>
+                                </p>
+                                <div class="form-field input-required">
+                                    <input type="email" required value="" placeholder="Ваша эл. почта">
+                                </div>
+                                <div class="form-field">
+                                    <input value="" placeholder="Ваше имя">
+                                </div>
+                                <div class="textarea-wrapper">
+                                    <textarea data-lang data-ua='Уведіть текст або' data-rus="Введите текст или"
+                                        placeholder="Уведіть текст або"></textarea>
+                                    <label class="area-download"><span data-lang data-ua='завантажте файл'
+                                            data-rus="загрузите файл">завантажте файл</span>
+                                        <input class="input d-none" type="file"
+                                            accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel,application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, .rtf, .txt, .pdf, .zip">
+                                    </label>
+                                    <div class="file-loader d-none">
+                                        <div class="file-name">Новый текстовый документ.txt</div>
+                                        <div class="file-size">Количество символов: <span>0</span></div>
+                                        <div data-lang data-ua='завантажте файл' data-rus="загрузите файл"
+                                            class="file-link">завантажте файл</div>
+                                    </div>
+                                    <div class="textarea-symbols d-none">0</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-section mt-40">
+                            <div class="form-section-item">
+                                <h2 data-lang data-ua='мова' data-rus="язык" class="subtitle title mb-20">мова</h2>
+                                <div class="radio-buttons">
+                                    <div class="button">
+                                        <div data-to-lang='ua' class="radioButton">
+                                            <div class="radioButton-button">
+                                                <div class="circle"></div>
+                                            </div><span data-lang data-ua='Українська'
+                                                data-rus="Украинский">Українська</span>
+                                        </div>
+                                    </div>
+                                    <div class="button">
+                                        <div data-to-lang='rus' class="radioButton">
+                                            <div class="radioButton-button">
+                                                <div class="circle"></div>
+                                            </div><span data-lang data-ua='Російська'
+                                                data-rus="Русский">Російська</span>
+                                        </div>
+                                    </div>
+                                    <div class="button">
+                                        <div data-to-lang='en' class="radioButton">
+                                            <div class="radioButton-button">
+                                                <div class="circle"></div>
+                                            </div><span data-lang data-ua='Англійська'
+                                                data-rus="Английский">Англійська</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-section mt-40 mb-4">
+                            <div class="form-section-item ">
+                                <div class="form-field">
+                                    <input data-lang data-ua='Стислий коментар або покликання'
+                                        data-rus="Короткий комментарий или ссылка" value="" class="common__input auto"
+                                        placeholder="Стислий коментар або покликання">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3 p-0 pl-sm-2 pr-sm-2 pl-lg-3 pr-lg-3">
+                        <div class="submit-form">
+                            <div class="submit-content">
+                                <div class="price">
+                                    <div class="number">0,00 грн</div>
+                                    <div class="time"></div>
+                                </div>
+                                <div class="button">
+                                    <button data-lang data-ua='Замовити' data-rus="Заказать" disabled
+                                        class="disabled">Замовити</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <footer class="footer">
+                <nav class="footer-nav">
+                    <div class="nav-item">
+                        <a rel="nofollow" target="_blank" href="https://www.facebook.com/correctarium/">Facebook</a>
+                    </div>
+                    <div class="nav-item">
+                        <a rel="nofollow" href="mailto:manager@correctarium.com">manager@correctarium.com</a>
+                    </div>
+                </nav>
+                <div class="lang-switcher">
+                    <button data-change-lang='ua' class="lang-item">Українська</button>
+                    <button data-change-lang='rus' class="lang-item">Русский</button>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
