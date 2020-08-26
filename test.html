@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- подключаем стили Mocha, для отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <!-- подключаем библиотеку Mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+    <script>
+        mocha.setup('bdd');
+    </script>
+
+    <!-- подключаем chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <!-- в chai есть много всего, выносим assert в глобальную область -->
+    <script>
+        var assert = chai.assert;
+    </script>
+</head>
+
+<body>
+
+    <script>
+        function pow() {
+            return 8;
+        }
+        function checkPrice({ totalLength, fileType, translateToLang = 'ua' } = {}) {
+            const validTypes = ['.doc', '.docx', '.rtf'];
+            const valueOfSymbol = translateToLang === 'en' ? 0.12 : 0.05;
+            const minPrice = translateToLang === 'en' ? 120 : 50;
+            let totalPrice = totalLength * valueOfSymbol;
+            if (fileType) {
+                if (!validTypes.includes(fileType)) {
+                    totalPrice += totalPrice * 0.2;
+                }
+            }
+            if (totalPrice < minPrice)
+                totalPrice = minPrice;
+            return totalPrice.toFixed(2);
+        }
+        function checkTerm({ totalLength, fileType, translateToLang = 'ua' } = {}) {
+            const validTypes = ['.doc', '.docx', '.rtf'];
+            const symbolPerHour = translateToLang === 'en' ? 333 : 1333;
+            const minTerm = 1;
+            let totalTerm = 0.5 + totalLength / symbolPerHour;
+            if (fileType) {
+                if (!validTypes.includes(fileType)) {
+                    totalTerm += totalTerm * 0.2;
+                }
+            }
+            if (totalTerm < minTerm)
+                totalTerm = minTerm;
+            totalTerm = Math.ceil(+totalTerm);
+            return totalTerm;
+        }
+        function getDate(totalTerm) {
+            const date = new Date();
+            let termCounter = totalTerm;
+            let readyDate;
+            do {
+                if (date.getDay() >= 1 && date.getDay() <= 5) {
+                    if (date.getHours() >= 10 && date.getHours() < 19) {
+                        if (termCounter === 0) {
+                            readyDate = date;
+                            break;
+                        }
+                        termCounter -= 1;
+                        date.setHours(date.getHours() + 1);
+                    } else {
+                        date.setHours(date.getHours() + 1);
+                    }
+                } else {
+                    date.setHours(date.getHours() + 1);
+                }
+            } while (true);
+            const dateNow = new Date();
+            let message = '';
+            message = readyDate.getDate() + '.' + `${roundMonth(readyDate.getMonth() + 1)}.${readyDate.getFullYear() % 1000} ${roundMinutes(readyDate.getHours() + ':' + readyDate.getMinutes())}`;
+            return message;
+        }
+        function roundMinutes(t) {
+            function format(v) { return v < 10 ? '0' + v : v; }
+
+            var m = t.split(':').reduce(function (h, m) { return h * 60 + +m; });
+
+            m = Math.ceil(m / 30) * 30;
+            return [Math.floor(m / 60), m % 60].map(format).join(':');
+        }
+        function roundMonth(m) {
+            if (+m < 10)
+                return '0' + m;
+            return m;
+        }
+    </script>
+
+    <!-- в этом скрипте находятся спеки -->
+    <script src="test.js"></script>
+
+    <!-- в элементе с id="mocha" будут результаты тестов -->
+    <div id="mocha"></div>
+
+    <!-- запустить тесты! -->
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>
